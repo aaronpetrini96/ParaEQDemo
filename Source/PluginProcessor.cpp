@@ -379,8 +379,8 @@ bool ParaEQDemoAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* ParaEQDemoAudioProcessor::createEditor()
 {
-//    return new ParaEQDemoAudioProcessorEditor (*this);
-    return new juce::GenericAudioProcessorEditor (*this);
+    return new ParaEQDemoAudioProcessorEditor (*this);
+//    return new juce::GenericAudioProcessorEditor (*this);
 }
 
 //==============================================================================

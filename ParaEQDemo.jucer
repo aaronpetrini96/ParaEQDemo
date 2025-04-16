@@ -4,6 +4,20 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Aaron Petrini">
   <MAINGROUP id="NQigaM" name="ParaEQDemo">
     <GROUP id="{D57D9AAD-E4B1-44B6-1D4B-4A6762CAB720}" name="Source">
+      <GROUP id="{69B8F8A8-651A-C6E3-B984-496A9E224EC5}" name="GUI">
+        <GROUP id="{D306891D-3F3A-73FC-B490-88C900E1EA4B}" name="Display">
+          <FILE id="peLzOU" name="display.cpp" compile="1" resource="0" file="Source/GUI/Display/display.cpp"/>
+        </GROUP>
+        <GROUP id="{60F5E263-8558-573F-9B01-26CFBDFDB3E9}" name="Labels">
+          <FILE id="fnj4UB" name="LabelsCommon.cpp" compile="1" resource="0"
+                file="Source/GUI/Labels/LabelsCommon.cpp"/>
+        </GROUP>
+        <GROUP id="{B46E7514-117E-6B19-A9FF-0E9C1DD08721}" name="LookAndFeel"/>
+        <GROUP id="{1CE70AD3-83BA-9D73-5351-5977DC082902}" name="Sliders">
+          <FILE id="wZqZkY" name="SlidersCommon.cpp" compile="1" resource="0"
+                file="Source/GUI/Sliders/SlidersCommon.cpp"/>
+        </GROUP>
+      </GROUP>
       <FILE id="dp3r3o" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="wQCwRv" name="PluginProcessor.h" compile="0" resource="0"
