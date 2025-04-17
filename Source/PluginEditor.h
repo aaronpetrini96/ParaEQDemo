@@ -67,6 +67,36 @@ private:
         &band7GainDial, &band7CutoffDial, &band7QDial,
     };
     
+//    ATTACHMENTS
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band1GainDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band1CutoffDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band1QDialAttach;
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band2GainDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band2CutoffDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band2QDialAttach;
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band3GainDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band3CutoffDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band3QDialAttach;
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band4GainDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band4CutoffDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band4QDialAttach;
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band5GainDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band5CutoffDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band5QDialAttach;
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band6GainDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band6CutoffDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band6QDialAttach;
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band7GainDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band7CutoffDialAttach;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band7QDialAttach;
+    
 //    ======== LABELS ========
     juce::Label band1Gainlabel {"Gain 1", "Gain 1"};
     juce::Label band1Cutofflabel {"Cutoff 1", "Cutoff 1"};
