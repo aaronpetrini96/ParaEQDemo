@@ -57,6 +57,33 @@ ParaEQDemoAudioProcessorEditor::ParaEQDemoAudioProcessorEditor (ParaEQDemoAudioP
 
 ParaEQDemoAudioProcessorEditor::~ParaEQDemoAudioProcessorEditor()
 {
+    band1GainDialAttach.reset();
+    band1CutoffDialAttach.reset();
+    band1QDialAttach.reset();
+    
+    band2GainDialAttach.reset();
+    band2CutoffDialAttach.reset();
+    band2QDialAttach.reset();
+    
+    band3GainDialAttach.reset();
+    band3CutoffDialAttach.reset();
+    band3QDialAttach.reset();
+    
+    band4GainDialAttach.reset();
+    band4CutoffDialAttach.reset();
+    band4QDialAttach.reset();
+    
+    band5GainDialAttach.reset();
+    band5CutoffDialAttach.reset();
+    band5QDialAttach.reset();
+    
+    band6GainDialAttach.reset();
+    band6CutoffDialAttach.reset();
+    band6QDialAttach.reset();
+    
+    band7GainDialAttach.reset();
+    band7CutoffDialAttach.reset();
+    band7QDialAttach.reset();
 }
 
 //==============================================================================
