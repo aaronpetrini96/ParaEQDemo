@@ -8,6 +8,8 @@ ParaEQDemoAudioProcessorEditor::ParaEQDemoAudioProcessorEditor (ParaEQDemoAudioP
 {
     initWindowSize();
     
+    startTimerHz(30);
+    
 // Dials props
     for (auto& dial : dials)
     {
@@ -84,6 +86,8 @@ ParaEQDemoAudioProcessorEditor::~ParaEQDemoAudioProcessorEditor()
     band7GainDialAttach.reset();
     band7CutoffDialAttach.reset();
     band7QDialAttach.reset();
+    
+    stopTimer();
 }
 
 //==============================================================================
@@ -93,6 +97,10 @@ void ParaEQDemoAudioProcessorEditor::paint (juce::Graphics& g)
     
     g.setColour(juce::Colours::black);
     g.fillRect(m_analyzerBounds);
+    
+    m_analyzerBounds.setBounds(0, 0, getWidth(), getHeight() * 0.5);
+    
+    drawFrame(g);
 }
 
 void ParaEQDemoAudioProcessorEditor::resized()
@@ -143,4 +151,20 @@ void ParaEQDemoAudioProcessorEditor::resized()
 
 }
 
+
+void ParaEQDemoAudioProcessorEditor::drawFrame (juce::Graphics& g)
+{
+    for (int i = 1; i < audioProcessor.scopeSize; ++i)
+    {
+        auto width = m_analyzerBounds.toNearestInt().getWidth();
+        auto height = m_analyzerBounds.toNearestInt().getHeight();
+        
+        g.setColour(juce::Colours::green);
+        
+        g.drawLine ({ (float) juce::jmap (i - 1, 0, audioProcessor.scopeSize - 1, 0, width),
+            juce::jmap (audioProcessor.scopeData[i - 1], 0.0f, 1.0f, (float) height, 0.0f),
+            (float) juce::jmap (i, 0, audioProcessor.scopeSize - 1, 0, width),
+            juce::jmap (audioProcessor.scopeData[i], 0.0f, 1.0f, (float) height, 0.0f) });
+    }
+}
 

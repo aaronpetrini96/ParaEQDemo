@@ -54,6 +54,17 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
     
     juce::AudioProcessorValueTreeState treeState;
+    
+    enum
+    {
+        fftOrder = 11,
+        fftSize = 1 << fftOrder,
+        scopeSize = 512
+    };
+    
+    void drawNextFrameOfSpectrum();
+    bool nextFFTBlockReady = false;
+    float scopeData [scopeSize];
 
 private:
     
@@ -77,6 +88,16 @@ private:
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> band6;
     void updateBand7(float gain, float cutoff, float q);
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> band7;
+    
+    
+//   ======= ANALYZER =======
+    juce::dsp::FFT forwardFFT;
+    juce::dsp::WindowingFunction<float> window;
+    
+    float fifo [fftSize];
+    float fftData [2*fftSize];
+    int fifoIndex = 0;
+    void pushNextSampleIntoFifo (float sample) noexcept;
     
     
     //==============================================================================

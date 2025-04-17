@@ -8,7 +8,7 @@
 //==============================================================================
 /**
 */
-class ParaEQDemoAudioProcessorEditor  : public juce::AudioProcessorEditor
+class ParaEQDemoAudioProcessorEditor  : public juce::AudioProcessorEditor, private juce::Timer
 {
 public:
     ParaEQDemoAudioProcessorEditor (ParaEQDemoAudioProcessor&);
@@ -17,6 +17,16 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
+    
+    void timerCallback() override
+    {
+        if (audioProcessor.nextFFTBlockReady)
+        {
+            audioProcessor.drawNextFrameOfSpectrum();
+            audioProcessor.nextFFTBlockReady = false;
+            repaint();
+        }
+    }
 
 private:
     // This reference is provided as a quick way for your editor to
@@ -67,7 +77,7 @@ private:
         &band7GainDial, &band7CutoffDial, &band7QDial,
     };
     
-//    ATTACHMENTS
+//    ======== ATTACHMENTS ========
     
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band1GainDialAttach;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band1CutoffDialAttach;
@@ -96,6 +106,7 @@ private:
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band7GainDialAttach;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band7CutoffDialAttach;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> band7QDialAttach;
+    
     
 //    ======== LABELS ========
     juce::Label band1Gainlabel {"Gain 1", "Gain 1"};
@@ -140,6 +151,8 @@ private:
     };
     
     juce::Rectangle<float> m_analyzerBounds;
+    
+    void drawFrame (juce::Graphics& g);
     
     
 
