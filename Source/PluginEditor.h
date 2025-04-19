@@ -150,6 +150,24 @@ private:
         &band7Gainlabel, &band7Cutofflabel, &band7Qlabel,
     };
     
+    
+    juce::Label graphLabel100 {"100", "100"};
+    juce::Label graphLabel250 {"250", "250"};
+    juce::Label graphLabel500 {"500", "500"};
+    juce::Label graphLabel1000 {"1K", "1K"};
+    juce::Label graphLabel2000 {"2K", "2K"};
+    juce::Label graphLabel4000 {"4K", "4K"};
+    juce::Label graphLabel8000 {"8K", "8K"};
+    juce::Label graphLabel16000 {"16K", "16K"};
+
+    std::vector <juce::Label*> graphLabels =
+    {
+        &graphLabel100, &graphLabel250, &graphLabel500,
+        &graphLabel1000, &graphLabel2000, &graphLabel4000,
+        &graphLabel8000, &graphLabel16000
+    };
+    
+    
     juce::Rectangle<float> m_analyzerBounds;
     
     void drawFrame (juce::Graphics& g);

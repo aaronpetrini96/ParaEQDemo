@@ -21,6 +21,11 @@ ParaEQDemoAudioProcessorEditor::ParaEQDemoAudioProcessorEditor (ParaEQDemoAudioP
         setLabelProps(*label);
     }
     
+//    Graph Labels props
+    for (auto &graphLabel: graphLabels) {
+        setLabelProps(*graphLabel);
+    }
+    
 //    Attach labels to dials
     for (int i {0}; i < labels.size(); ++i)
     {
@@ -55,6 +60,8 @@ ParaEQDemoAudioProcessorEditor::ParaEQDemoAudioProcessorEditor (ParaEQDemoAudioP
     band7GainDialAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, "band7Gain", band7GainDial);
     band7CutoffDialAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, "band7Cutoff", band7CutoffDial);
     band7QDialAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, "band7Q", band7QDial);
+    
+    
 }
 
 ParaEQDemoAudioProcessorEditor::~ParaEQDemoAudioProcessorEditor()
@@ -106,7 +113,7 @@ void ParaEQDemoAudioProcessorEditor::paint (juce::Graphics& g)
 void ParaEQDemoAudioProcessorEditor::resized()
 {
     const auto leftMargin = getWidth() * 0.1;
-    const auto topMargin = getHeight() * 0.58;
+    const auto topMargin = getHeight() * 0.625;
     const auto dialSize = getWidth() * 0.06;
     const auto spaceBetween = 1.4;
 //    const auto dialWidth = band1GainDial.getWidth();
@@ -148,6 +155,35 @@ void ParaEQDemoAudioProcessorEditor::resized()
     band7GainDial.setBounds(leftMargin * groupSpace, topMargin, dialSize, dialSize);
     band7CutoffDial.setBounds(band7GainDial.getX() - band1GainDial.getWidth() * 0.5, band1GainDial.getY() + band1GainDial.getHeight() * spaceBetween, dialSize, dialSize);
     band7QDial.setBounds(band7CutoffDial.getX() + band7CutoffDial.getWidth(), band7CutoffDial.getY(), dialSize, dialSize);
+    
+    
+    const auto labelY = getHeight() * 0.43;
+    const auto labelX = getWidth() * 0.018;
+    const auto labelW = getWidth() * 0.1;
+    const auto labelH = labelW * 0.5;
+    
+    graphLabel100.setBounds(labelX, labelY, labelW, labelH);
+    auto space1 = graphLabel100.getX() * 2.68;
+    
+    graphLabel250.setBounds(space1, labelY, labelW, labelH);
+    auto space2 = graphLabel100.getX() * 5.28;
+    
+    graphLabel500.setBounds(space2, labelY, labelW, labelH);
+    auto space3 = graphLabel100.getX() * 10.27;
+    
+    graphLabel1000.setBounds(space3, labelY, labelW, labelH);
+    auto space4 = graphLabel1000.getX() * 1.84;
+    
+    graphLabel2000.setBounds(space4, labelY, labelW, labelH);
+    auto space5 = graphLabel1000.getX() * 1.7;
+    
+    graphLabel4000.setBounds(space5, labelY, labelW, labelH);
+    auto space6 = graphLabel1000.getX() * 1.453;
+    
+    graphLabel8000.setBounds(space6, labelY, labelW, labelH);
+    auto space7 = graphLabel1000.getX() * 1.123;
+    
+    graphLabel16000.setBounds(space7, labelY, labelW, labelH);
 
 }
 
